@@ -1,0 +1,623 @@
+---
+layout: archive
+permalink: /metadata_fr/
+title: "Métadonnées d'un élément Karuta"
+sidebar:
+ nav: "metadata_fr"
+---
+<p>
+	Les métadonnées d'un élément Karuta permettent de lui attribuer un identifiant unique et de
+	spécifier son comportement.
+</p>
+<p>
+	L'identifiant unique de l'élément se nomme le Tag sémantique et permet de référencer cet élément 
+	à partir d'autres éléments. Il est de bonne pratique d'attribuer un identifiant unique à chaque 
+	élément ajouté à un portfolio.
+</p>
+<p>
+	On spécifie ensuite le comportement de chacun de ces éléments. Par exemple, dans le cas d'éléments 
+	de structure (Section, Page, Sous-section), on peut définir des menus qui permettent l'ajout 
+	d'éléments supplémentaires par le designer ou par l'utilisateur final. Dans le cas des éléments de 
+	ressource (éléments qui contiennent les données) on peut associer des rôles à chaque 
+	droit, définissant ainsi qui peut faire quoi sur l'élément.
+</p>
+<p>
+	C'est aussi dans les métadonnées qu'on spécifie quels sont les éléments qui vont peupler une boîte 
+	de choix, quels utilisateurs pourront partager leur portfolio avec une tierce partie (et sous 
+	quelles conditions de sécurité), spécifier le contenu des bulles d'aide, etc.
+</p>
+<p>On accède aux métadonnées d'un élément via la boîte d'édition de celui-ci (bouton crayon).</p>
+
+<h2>Les métadonnées</h2>
+
+<h4>Nœud</h4>
+<ul>
+	<li><code><a href='#semantictag'>Tag sémantique</a></code></li>
+	<li><code><a href='#code'>Code</a></code></li>
+	<li><code><a href='#multilingual-node'>Nœud multilingue</a></code></li>
+	<li><code><a href='#multilingual-resource'>Ressource multilingue</a></code></li>
+	<li><code><a href='#encript-resource'>Encrypter la ressource</a></code></li>
+</ul>
+<h4>Droits utilisateurs</h4>
+<ul>
+	
+	<li><code><a href='#see'>Voir</a></code></li>
+	<li><code><a href='#delete'>Supprimer</a></code></li>
+	<li><code><a href='#edit-resource'>Modifier ressource</a></code></li>
+	<li><code><a href='#resnopencil'>Ressource sans crayon</a></code></li>
+	<li><code><a href='#comment'>Commenter</a></code></li>
+	<li><code><a href='#submit'>Soumettre</a></code></li>
+	<li><code><a href='#editcoderoles'>Éditer code</a></code></li>
+	<li><code><a href='#editnoderoles'>Modifier nœud</a></code></li>
+	<li><code><a href='#nodenopencil'>Nœud sans crayon</a></code></li>
+	<li><code><a href='#duplicateroles'>Dupliquer</a></code></li>
+	<li><code><a href='#resizeroles'>Modifier taille image</a></code></li>
+	<li><code><a href='#moveroles'>Ordonner</a></code></li>
+	<li><code><a href='#moveinroles'>Déplacer</a></code></li>
+	<li><code><a href='#movein'>Déplacer dans</a></code></li>
+	<li><code><a href='#showroles'>Montrer/Cacher</a></code></li>
+	<li><code><a href='#showtoroles'>Montrer à</a></code></li>
+	<li><code><a href='#printroles'>Imprimer</a></code></li>
+</ul>
+<h4>Nœud</h4>
+<ul>
+	<li><code><a href='#editboxtitle'>Titre boîte d'édition</a></code></li>
+	<li><code><a href='#maxword'>Max mots</a></code></li>
+	<li><code><a href='#display'>Visible</a></code></li>
+	<li><code><a href='#inline'>Édition en place</a></code></li>
+	<li><code><a href='#collapsible'>Repliable</a></code></li>
+	<li><code><a href='#query'>Recherche</a></code></li>
+	<li><code><a href='#sharing'>Partager</a></code></li>
+	<li><code><a href='#menu'>Menus</a></code></li>
+	<li><code><a href='#menulabels'>Texte bouton Menu</a></code></li>
+	<li><code><a href='#help'>Bulle d'aide</a></code></li>
+</ul>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='semantictag'>Tag sémantique</h3>
+	<p>
+		Le tag sémantique d'un élément est son identifiant et devrait exprimer sa sémantique 
+		(exemple&nbsp;: <i>page-profil-etudiant</i>, <i>nom-etudiant</i>, etc). Le designer d'un 
+		portfolio devrait, pour chaque élément qu'il ajoute à un portfolio, remplacer le tag 
+		sémantique par défaut par quelque chose qui exprime la sémantique de l'élément.
+	</p>
+	<p>
+		C'est par le tag sémantique qu'on recherche des éléments dans un portfolio. 
+		Il est utilisé dans la métadonnée Recherche (voir ci-dessous) ainsi que dans les scripts 
+		de rapport et de batch.
+	</p>
+	<p>
+		ATTENTION : La recherche de tag sémantique se fait par inclusion. Par exemple, 
+		si on recherche les éléments avec le tag sémantique <i>competence</i>, les éléments avec le 
+		tag sémantique <i>sous-competence</i> seront également trouvés, car le mot competence est 
+		inclus dans le mot sous-competence.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='code'>Code</h3>
+	<p>
+		Le plus souvent attribué aux éléments Item et Sous-section pour ensuite être utilisé dans les 
+		listes déroulantes (éléments Get_Resource et Get_Get_Resource) et les boîtes de choix multiples
+		(fonctions Get_Multiple et Import_Multiple). C'est lui qui permet d'identifier la sélection de 
+		l'utilisateur.
+	</p>
+	<p>
+		ATTENTION&nbsp;: Le code d'un élément de portfolio doit être unique à l'intérieur de ce portfolio.
+	</p>
+	<p>
+		Par défaut le code et le libellé de l'élément apparaissent dans la liste déroulante et seul le 
+		libellé de l'option sélectionnée par l'utilisateur est ensuite afffiché dans l'élément 
+		Get_Resource (ou Get_Get_Resource). Ce comportement peut être modifié par l'ajout d'un 
+		ou plusieurs des symboles suivants au code de l'élément&nbsp;:
+	</p>
+	<ul>
+		<li><code>@</code> rendra le code non visible dans la liste déroulante&nbsp;;</li>
+		<li><code>#</code> rendra le code visible dans l'élément Get_Resource&nbsp;;</li>
+		<li>
+			<code>&amp;</code> rendra la valeur associée à l'élément visible dans l'élément 
+			Get_Resource (seul les éléments de type Item ont un champ pour indiquer une valeur)&nbsp;;
+		</li>
+		<li>
+			<code>?</code> rendra la valeur associée à l'élément visible dans la liste déroulante (seul 
+			les éléments de type Item ont un champ pour indiquer une valeur)&nbsp;;
+		</li>
+		<li><code>%</code> rendra le libellé non visible dans l'élément Get_Resource&nbsp;;</li>
+		<li><code>$</code> rendra le libellé non visible dans la liste déroulante&nbsp;;</li>
+		<li>
+			<code>!</code> rendra le choix non sélectionnable dans la boîte de choix multiple (utile pour
+			créer des titres de section dans la boîte de choix).
+		</li>
+	</ul>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='multilingual-node'>Nœud multilingue</h3>
+	<p>
+		Spécifie si le <b>libellé</b> du nœud prend une valeur différente pour chaque langue dans le cas 
+		où le portfolio est multilingue. Si Nœud multilingue n'est pas coché, il y aura une seule valeur 
+		pour toutes les langues et cette valeur sera stockée dans la langue par défaut définie dans le 
+		fichier de configuration <i>_init.js</i>.
+	</p>
+	<p>
+		ATTENTION&nbsp;: Le code n'est jamais multilingue. Il a la même valeur quelle que soit la langue 
+		active.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='multilingual-resource'>Ressource multilingue</h3>
+	<p>	
+		Éléments ressource uniquement. Spécifie si les données entrées dans l'élément ressource prennent 
+		des valeurs différentes pour chaque langue  dans le cas où le portfolio est multilingue. Si la 
+		Ressource multilingue n'est pas coché, il y aura une seule valeur pour toutes les langues et cette 
+		valeur sera stockée dans la langue par défaut définie dans le fichier de configuration 
+		<i>_init.js</i>
+	</p>
+	<p>
+		Par exemple, un nom ou une date de naissance ne sont habituellement pas dépendants de la langue,
+		alors qu'un texte qui donne des instructions est définitivement différent dans chaque langue.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='encript-resource'>Encrypter la ressource</h3>
+	<p>
+		Spécifie si la ressource doit être encryptée. Dans le cas positif, une phrase-clé est demandée à 
+		l'utilisateur à l'ouverture du portfolio. Cette phrase-clé sert à encoder/décoder les données 
+		entrées dans la ressource. Cette phrase-clé n'est pas stockée dans Karuta et doit donc être 
+		mémorisée par l'utilisateur, car elle lui est demandée à chaque ouverture du portfolio.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='see'>Voir</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de voir l'élément. Exemple&nbsp;: 
+		<i>etudiant professeur</i>.
+	</p>
+	<p>
+		Par défaut le droit de voir est attribué au rôle <i>all</i>, qui englobe tous les rôles. Il 
+		s'agit de l'unique droit à avoir une valeur par défaut. 
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='delete'>Supprimer</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de supprimer l'élément. Affiche le bouton X.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='edit-resource'>Modifier ressource</h3>
+	<p>
+		Éléments ressource uniquement. Liste des rôles, séparés par un espace, ayant le droit 
+		d'éditer la ressource (y enregistrer des données). Affiche le bouton crayon.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='resnopencil'>Ressource sans crayon</h3>
+	<p>
+		Éléments ressource uniquement. N'affiche pas le bouton crayon aux rôles ayant le droit
+		de modifier la ressource. Utilisé pour les imports d'éléments multiples via la fonction 
+		 <i>Get_Multiple</i> (voir section <a href='../functions_fr/'>FONCTIONS MENU</a> pour 
+		plus de détails). 
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='comment'>Commenter</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de commenter un élément ressource. 
+		Ce droit ajoute un éditeur de texte au bas de la boîte d'édition de la ressource. Le 
+		commentaire est daté et signé du nom de l'utilisateur qui l'a écrit. Pour pouvoir commenter 
+		un élément, l'utilisateur doit également avoir le droit de Modifier la ressource.
+	</p>
+	<p>
+		ASTUCE&nbsp;: Le designer peut s'attribuer le droit de commenter un élément de structure &ndash;
+		cela lui permet d'ajouter l'équivalent d'un sous-titre au libellé de l'élément.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='submit'>Soumettre</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de soumettre l'élément. Lorsque 
+		l'utilisateur soumet un élément, ses droits d'édition et/ou de suppression sont retirés pour cet 
+		élément et tous ses enfants. Affiche le bouton <i>Soumettre</i>.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='editcoderoles'>Éditer code</h3>
+	<p>Liste des rôles, séparés par un espace, ayant le droit de modifier le code de l'élément.</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='editnoderoles'>Modifier nœud</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de modifier le <b>libellé</b> de l'élément. 
+		Affiche le bouton crayon.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='nodenopencil'>Nœud sans crayon</h3>
+	<p>
+		N'affiche pas le bouton crayon aux rôles ayant le droit de Modifier le nœud. Utilisé pour 
+		les imports de composantes via la fonction <i>Get_Multiple</i> (voir section 
+		<a href='../functions_fr/'>FONCTIONS MENU</a> pour plus de détails). 
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='duplicateroles'>Dupliquer</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de dupliquer l'élément. La copie de 
+		l'élément sera ajoutée à la fin de la liste d'éléments du même niveau hiérarchique dans 
+		l'arborescence. Affiche le bouton copie.	
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='resizeroles'>Modifier taille image</h3>
+	<p>
+		Éléments Image uniquement. Liste des rôles, séparés par un espace, ayant le droit de modifier
+		la taille d'affichage de l'image. Affiche le bouton crayon.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='moveroles'>Ordonner</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit modifier l'ordonnancement de l'élément
+		parmis les éléments du même niveau hiérarchique dans l'arborescence. Affiche le bouton flèche 
+		vers le haut.	
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='moveinroles'>Déplacer</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de déplacer l'élément vers une autre 
+		branche dans l'arborescence. Affiche le bouton flèches croisées.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='movein'>Déplacer dans</h3>
+	<p>
+		Tag sémantique qui contraint les éléments vers lesquels les rôles ayant le droit de Déplacer 
+		peuvent déplacer l'élément courant. Par exemple, avoir le droit de déplacer un élément 
+		uniquement vers les sous-sections qui ont le tag sémantique spécifié.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='showroles'>Montrer/Cacher</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit de montrer/cacher l'élément et tous ses
+		enfants à d'autres utilisateurs. Ce droit ajoute le bouton œil qui indique <b>l'état</b> (et 
+		non l'action)&nbsp;: lorsque l'œil est barré, l'élément est invisible aux autres 
+		utilisateurs&nbsp;; lorsque l'œil n'est pas barré, l'élément est visible aux autres utilisateurs.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='showtoroles'>Montrer à</h3>
+	<p>
+		Liste des rôles, séparés par un espace, à qui l'élément est caché ou montré par les utilisateurs
+		ayant le droit de Montrer/Cacher.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='printroles'>Imprimer</h3>
+	<p>
+		Liste des rôles, séparés par un espace, ayant le droit d'imprimer l'élément. Affiche le bouton 
+		imprimante.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='editboxtitle'>Titre boîte d'édition</h3>
+	<p>
+		Spécifie un titre alternatif pour la boîte d'édition (par défaut le titre de la boîte d'édition
+		est le libellé de l'élément). Utile pour les éléments ressource qui n'ont pas de libellé ou pour 
+		donner des instructions aux utilisateurs qui ont le droit de Modifier la ressource.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='maxword'>Max mots</h3>
+	<p>
+		Éléments Texte long uniquement. Spécifie le nombre maximal de mots que peut entrer l'utilisateur 
+		qui a le droit de Modifier la ressource.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='display'>Visible</h3>
+	<p>
+		Lorsque Visible n'est pas coché, l'élément n'est pas affiché (sauf au designer). Utile pour cacher 
+		aux utilisateurs du contenu nécéssaire à l'exécution d'un script de tableau. Tous les éléments 
+		sont visibles par défaut.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='inline'>Édition en place</h3>
+	<p>
+		Éléments ressource uniquement. Lorsque Édition en place est coché, l'utilisateur n'a pas de 
+		bouton crayon et l'éditeur de la ressource est affiché directement dans la page du portfolio.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='collapsible'>Repliable</h3>
+	<p>
+		Éléments Sous-section uniquement. Lorsque Repliable n'est pas coché, le bouton +/- à gauche 
+		qui permet de déplier/replier la sous-section n'est pas affiché. Les sous-sections sont 
+		repliables par défaut.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='query'>Recherche</h3>
+	<p>
+		Le champ Recherche est utilisé pour spécifier quels éléments doivent apparaître dans une liste 
+		déroulante (éléments Get_Resource et Get_Get_Resource) et pour choisir la cible d'un élément Proxy.
+	</p>
+	<p>
+		NOTE&nbsp;: voir section <a href='../resources_fr/'>RESSOURCES</a> pour plus de détails sur les 
+		éléments Get_Resource, Get_Get_Resource et Proxy.
+	</p>
+	<h4>Format de la recherche pour un élément Get_Resource</h4>
+	<p>	
+		<code>code_portfolio</code> (ou <code>self</code>).<code>tag_sémantique</code>.<code>label</code>
+		(ou <code>text</code> ou <code>fileid</code> ou <code>resource</code>)
+	</p>
+	<ul>
+		<li>
+			<code>code_portfolio</code> Code du portfolio référentiel où chercher les éléments
+			spécifiés par le tag sémantique. Le format est <i>code du projet.code du portfolio 
+			référentiel</i>. Si <i>code du projet</i> n'est pas présent, la recherche du portfolio 
+			référentiel se fait dans le projet courant (projet qui contient le portfolio dans lequel se 
+			trouve le Get_Resource).
+		</li>
+		<li>
+			<code>tag_sémantique</code> Tag sémantique des élements à afficher dans la liste
+			déroulante.
+		</li>
+		<li>
+			<code>label</code> Mot réservé. Lorsque les éléments cherchés sont des Items ou des 
+			Sous-sections (voir autres options ci-dessous).
+		</li>
+	</ul>
+	<p> 
+		Option <code>self</code><br>
+		Peut remplacer <code>code_portfolio</code>. Dans ce cas la recherche se
+		fait à l'intérieur du portfolio courant (portfolio qui contient l'élément Get_Resource).
+	</p>
+	<p> 
+		Option <code>text</code><br>
+		Peut remplacer <code>label</code> et s'applique lorsque les éléments 
+		cherchés sont de type Texte court ou Texte long. Dans ce cas c'est le texte dans la Ressource et 
+		non le libellé qui sera affiché dans la liste déroulante puis dans le Get_Ressource.
+	</p>
+	<p> 
+		Option <code>fileid</code><br>
+		Peut remplacer <code>label</code> et s'applique lorsque les éléments
+		cherchés sont de type Image. Dans ce cas c'est l'image et non le libellé qui sera affiché dans 
+		la liste déroulante puis dans le Get_Ressource. Les éléments Image doivent être déclarés à même le 
+		portfolio où se trouve l'élément Get_Ressource et non pas dans un portfolio référentiel&nbsp;; donc 
+		à utiliser en combinaison avec l'option <code>self</code>.
+	</p>
+	<p> 
+		Option <code>resource</code><br>
+		Peut remplacer <code>label</code> et s'applique lorsque les éléments 
+		cherchés sont de type Item. Dans ce cas le Get_Resource sera mis à jour si l'élément Item 
+		sélectionné est modifié. Les éléments Item doivent être déclarés à même le portfolio où se trouve 
+		l'élément Get_Ressource et non pas dans un portfolio référentiel&nbsp;; donc à utiliser en 
+		combinaison avec l'option <code>self</code>. 
+	</p>
+	<h4>Format de la recherche pour un élément Get_Get_Resource</h4>
+	<p>
+		<code>code_portfolio</code>.<code>position</code>.<code>tag_sémantique1</code>.<code>tag_sémantique2</code>.<code>label</code>
+	</p>
+	<ul>
+		<li>			
+			<code>code_portfolio</code> Code du portfolio référentiel où chercher les éléments
+			spécifiés par tag sémantique2. Le format est <i>code du projet.code du portfolio 
+			référentiel</i>. Si <i>code du projet</i> n'est pas présent, la recherche du portfolio 
+			référentiel se fait dans le projet courant (projet qui contient le portfolio dans lequel se 
+			trouve le Get_Get_Resource).
+		</li>
+		<li>
+			<code>position</code> Indique où chercher dans le portfolio courant le code de l'élément 
+			parent qui va permettre de restreindre la recherche dans le référentiel. Prend une des 
+			valeurs suivantes&nbsp;: <i>child</i>, <i>sibling</i>, <i>parent</i>, <i>parent.parent</i>, 
+			<i>parent.parent.parent</i>.
+		</li>
+		<li>
+			<code>tag_sémantique1</code> Tag sémantique du parent (restreint la recherche aux 
+			enfants de ce parent).
+		</li>
+		<li>
+			<code>tag_sémantique2</code> Tag sémantique des élements à afficher dans la liste
+			déroulante.
+		</li>
+		<li><code>label</code> Mot réservé.</li>
+	</ul>
+	<h4>Format de la recherche pour un élément Proxy</h4>
+	<p><code>code_portfolio</code>.<code>tag_sémantique</code>.<code>label</code></p>
+	<ul>
+		<li><code>code_portfolio</code> Code du portfolio dans lequel chercher la cible à afficher.</li>
+		<li><code>tag_sémantique</code> Tag sémantique des élements parmis lesquels choisir la cible.</li>
+		<li><code>label</code> Mot réservé.</li>
+	</ul>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='sharing'>Partager</h3>
+	<p>
+		La fonction Partager permet à l'utilisateur d'envoyer à un tiers un courriel avec un hyperlien 
+		qui partage, en tout ou en partie, son portfolio avec ce tiers.
+	</p>
+	<h4>Format</h4>
+	<p>	
+		<code>rôle qui partage</code>,<code>rôle visiteur</code>,<code>rôles et/ou 
+		courriels destinataires</code>,<code>niveau (0-4)</code>,<code>durée de vie du lien 
+		(en heures)</code>,<code>libellé du bouton</code>@fr[,<code>condition</code>]
+	</p>
+	<ul>
+		<li>
+			<code>rôle qui partage</code> Rôle de l'utilisateur qui peut faire le partage (qui aura le 
+			bouton pour partager).
+		</li>
+		<li><code>rôle visiteur</code> Rôle qu'aura le destinataire dans le portfolio.</li>
+		<li>
+			<code>rôles et/ou courriels destinataires</code> Rôles et/ou courriels des destinataires. Si 
+			c'est un rôle, toutes les personnes ayant ce rôle dans le portfolio seront destinataires d'un 
+			courriel.
+		</li>
+		<li>
+			<code>niveau (0-4)</code> Niveau de sécurité pour le partage. Peut prendre les valeurs de 0 à 4 
+			(voir description des niveaux ci-dessous).
+		</li>
+		<li>
+			<code>durée de vie du lien</code> En heure. Après ce temps, le lien qui se trouve dans le 
+			courriel est désactivé.
+		</li>
+		<li>
+			<code>libellé du bouton</code> Libellé qui apparaîtra à l'utilisateur qui peut faire le 
+			partage. Suffixer de @fr pour français.
+		</li>
+		<li>
+			<code>condition</code> Optionnel. Condition pour que le bouton de partage soit visible à 
+			l'utilisateur. Exemple&nbsp;: <i>submitted=='Y'</i>.
+		</li>
+	</ul>
+	<h4>Niveaux de sécurité</h4>
+	<p>
+		Niveau 0 – utilisateur Karuta<br>
+		Le destinataire du courriel possède un compte Karuta et le portfolio lui est déjà partagé, dans le 
+		bon rôle. Son mot de passe lui sera demandé si il n'est pas déjà logué dans Karuta.
+	</p>
+	<p>
+		Niveau 1<br>
+		Le destinataire du courriel possède un compte Karuta et le portfolio lui est déjà partagé, dans le 
+		bon rôle. Son mot de passe ne lui sera pas demandé (si l'utilisateur n'est pas déjà logué dans 
+		Karuta, un login temporaire lui sera attribué). Par mesure de sécurité, il devrait y avoir un bouton 
+		<i>Soumettre</i> sur les éléments que le visiteur peut modifier.
+	</p>
+	<p>
+		Niveau 2<br>
+		Le destinataire du courriel possède un compte Karuta mais le portfolio ne lui est pas partagé. Le 
+		système partage le portfolio avec l’utilisateur dans le bon rôle. (Si l'utilisateur n'est pas déjà 
+		logué dans Karuta, un login temporaire lui sera attribué.) Par mesure de sécurité, il devrait y 
+		avoir un bouton <i>Soumettre</i> sur les éléments que le visiteur peut modifier.
+	</p>
+	<p>
+		Niveau 3<br>
+		Si le destinataire du courriel n'a pas de compte dans Karuta, un compte lui sera créé. Le système 
+		partage le portfolio avec l'utilisateur dans le bon rôle. (Si l'utilisateur n'est pas déjà 
+		logué dans Karuta, un login temporaire lui sera attribué.) Par mesure de sécurité, il devrait y 
+		avoir un bouton <i>Soumettre</i> sur les éléments que le visiteur peut modifier.
+	</p>
+	<p>
+		Niveau 4 - lien public<br>
+		Si l'utilisateur n'est pas logué dans Karuta, un login temporaire lui sera attribué. Il a 
+		automatiquement (logué ou non) le rôle <i>all</i> (donc il peut voir mais ne peut rien modifier).
+		Lors de l’instanciation, le rôle <i>all</i> doit être partagé avec l’utilisateur <i>public</i>.
+	</p>
+	<p>	
+		Voir section <a href='../sharing_fr/'>PARTAGE PAR L'UTILISATEUR</a> pour une documentation complète 
+		et des exemples d'utilisation.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='menu'>Menus</h3>
+	<p>
+		Permet de composer des menus afin d'importer des composantes. En général, les 
+		composantes se trouvent dans un portfolio de composantes réutilisables et le menu s'adresse à 
+		un ou plusieurs utilisateurs, leur permettant d'ajouter des éléments à leur portfolio. Dans 
+		ce cas la composante importée est copiée puis collée dans le portfolio.
+	</p>
+	<p>
+		ASTUCE&nbsp;: Le designer peut se créer des menus à lui-même afin de copier des morceaux 
+		de portfolio d'un portfolio à un autre.
+	</p>
+	<p>
+		Il existe aussi dans Karuta plusieurs fonctions préprogrammées dont l'appel se fait à l'intérieur 
+		de la métadonnée Menus. Voir section <a href='../functions_fr/'>FONCTIONS MENU</a> pour la 
+		documentation de ces fonctions.
+	</p>
+	<h4>Format</h4>
+	<p>
+		<code>code_portfolio</code>,<code>tag_sémantique</code>,<code>libellé</code>@fr,<code>rôles</code>[;&nbsp;autres menus]
+	</p>
+	<ul>
+		<li><code>code_portfolio</code> Code du portfolio duquel on importe la composante.</li>
+		<li><code>tag sémantique</code> Tag sémantique de la composante à importer.</li>
+		<li><code>libellé</code> Libellé de l'élément de menu. Suffixer de @fr pour français.</li>
+		<li><code>rôles</code> Liste des rôles, séparés par un espace, voyant l'élément de menu.</li>
+	</ul>
+	<p>
+		ATTENTION&nbsp;: Il n'y a pas de point-virgule final.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='menulabels'>Texte bouton Menu</h3>
+	<p>
+		Texte alternatif pour le libellé du bouton Menu lorsque plus d'un choix est offert à un rôle
+		(par défaut <i>Menu</i>). Suffixer de @fr pour français. Par exemple&nbsp;: 
+		<i>Ajouter un diplôme@fr</i> si il y a plusieurs types de composantes de diplômes.
+	</p>
+</article>
+
+<article>
+	<a style='float:right' href='#top'><img src='../assets/img/arrow-up.png'/></a>
+	<h3 id='help'>Bulle d'aide</h3>
+	<p>
+		Affiche de l'information supplémentaire dans une bulle pop-up à côté du libellé de l'élément. 
+		Suffixer de @fr pour français.
+	</p>
+</article>
+
+
